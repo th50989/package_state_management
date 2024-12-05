@@ -16,7 +16,7 @@ know whether this package might be useful for them.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+TODO: Simple state managemnt package
 
 ## Getting started
 
@@ -25,12 +25,30 @@ start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Create state : 
+StateManager.createState<int>('counter', 0);
 
-```dart
-const like = 'sample';
-```
+Get state:
+int counter = StateManager.getState<int>('counter');
+print(counter); // Output: 0
+
+Update the state:
+StateManager.updateState<int>('counter', (value) => value + 1);
+
+Listen for changes:
+StateManager.watchState<int>('counter', () {
+  print("Counter updated");
+});
+
+Use StatefulListener for UI updates:
+StatefulListener<int>(
+  stateKey: 'counter',
+  builder: (context, counter) {
+    return Text('Counter: $counter');
+  },
+)
+
+
 
 ## Additional information
 
