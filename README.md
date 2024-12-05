@@ -18,11 +18,6 @@ know whether this package might be useful for them.
 
 TODO: Simple state managemnt package
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
 ## Usage
 
 Create state : 
@@ -48,13 +43,6 @@ StatefulListener<int>(
   },
 )
 
-
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
 # StateManager
 
 StateManager is a lightweight state management solution for Flutter.
