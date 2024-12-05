@@ -16,7 +16,7 @@ know whether this package might be useful for them.
 
 ## Features
 
-TODO: Simple state managemnt package
+TODO: Simple state management package
 
 ## Usage
 
@@ -42,6 +42,50 @@ StatefulListener<int>(
     return Text('Counter: $counter');
   },
 )
+## Usage for API
+void main() {
+  // Tạo state danh sách
+  StateManager.createState<List<String>>('myList', []);
+  runApp(MyApp());
+}
+
+
+In UI:
+StatefulListener<List<String>>(
+                stateKey: 'myList',
+                builder: (context, list) {
+                  if (StateManager.isLoading('myList')) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+
+                  final error = StateManager.getError('myList');
+                  if (error != null) {
+                    return Center(child: Text('Error: $error'));
+                  }
+
+                  return ListView.builder(
+                    itemCount: list.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(title: Text(list[index]));
+                    },
+                  );
+                },
+              )
+
+Event:
+ElevatedButton(
+                onPressed: () {
+                  StateManager.updateStateAsync<List<String>>('myList',
+                      (currentList) async {
+                    await Future.delayed(Duration(seconds: 2)); // Mô phỏng API
+                    return [
+                      ...currentList,
+                      'New Item ${currentList.length + 1}'
+                    ];
+                  });
+                },
+                child: Text('Add Item (Async)'),
+              )
 
 # StateManager
 
