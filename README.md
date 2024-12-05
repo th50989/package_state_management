@@ -43,14 +43,13 @@ StatefulListener<int>(
   },
 )
 ## Usage for API
+
 void main() {
   // Tạo state danh sách
   StateManager.createState<List<String>>('myList', []);
   runApp(MyApp());
 }
 
-
-In UI:
 StatefulListener<List<String>>(
                 stateKey: 'myList',
                 builder: (context, list) {
