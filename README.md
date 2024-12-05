@@ -65,4 +65,4 @@ Add this to your `pubspec.yaml`:
 ```yaml
 dependencies:
   state_manager:
-    path: ../state_manager
+    path: ../package_state_manager
